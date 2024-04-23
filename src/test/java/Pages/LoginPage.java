@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends BasePage{
 
@@ -28,25 +29,29 @@ public class LoginPage extends BasePage{
 
     //Helper method
 
-    public void provideEmail(String email){
+    public LoginPage provideEmail(String email){
 
         findElement(emailField).sendKeys(email);
+        return this;
     }
 
-    public void providePassword(String password){
+    public LoginPage providePassword(String password){
 
         findElement(passwordField).sendKeys(password);
+        return this;
     }
 
-    public void clickLoginBtn(){
+    public LoginPage clickLoginBtn(){
 
         findElement(loginBtn).click();
+        return this;
     }
 
-    public void login(){
+    public LoginPage login(){
         provideEmail("agnes.albertusiak@testpro.io");
         providePassword("4Ameryka4aska!");
         clickLoginBtn();
+        return this;
     }
 
     //Methods using Page Factory
@@ -61,6 +66,11 @@ public class LoginPage extends BasePage{
     }
     public LoginPage enterPassword(String password){
         passwordF.sendKeys(password);
+        return this;
+    }
+    public LoginPage registrationLinkClick() {
+        WebElement registrationLink = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[href='registration']")));
+        registrationLink.click();
         return this;
     }
 }

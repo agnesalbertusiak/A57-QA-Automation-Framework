@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.UUID;
 
 public class BasePage {
 
@@ -29,4 +30,13 @@ public class BasePage {
     public void doubleClick(By locator) {
         actions.doubleClick(findElement(locator)).perform();
     }
+    private String generateRandomName() {
+        return UUID.randomUUID().toString().replace("-","");
+    }
+
+    public boolean soundBarIconDisplayed() {
+        WebElement soundBar = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@data-testid='sound-bar-play']")));
+        return soundBar.isDisplayed();
+    }
+
 }

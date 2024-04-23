@@ -51,30 +51,14 @@ public class BaseTest {
     @BeforeMethod
     @Parameters({"BaseUrl"})
     public void launchBrowser (String BaseURL)throws MalformedURLException{
-        //ChromeOptions options = new ChromeOptions();
-        //options.addArguments("--remote-allow-origins=*");
-        //options.addArguments("--disable-notifications");
-        //options.addArguments("--incognito");
-        //options.addArguments("--start-maximized");
-        //options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
-
-        //driver = new ChromeDriver(options);
-        //driver = pickBrowser(System.getProperty("browser"));
         threadDriver.set(pickBrowser(System.getProperty("browser"))); //this one for parallel testing
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        //driver.manage().window().maximize();
         getDriver().manage().window().maximize();
         url = BaseURL;
-        //driver.get(url);
         getDriver().get(url);
         wait = new WebDriverWait(driver, Duration.ofSeconds(4));
         actions = new Actions(driver);
     }
-    //@AfterMethod
-    //public void closeBrowser(){
-        //driver.quit();
-    //}
 @AfterMethod
     public void tearDown(){
         threadDriver.get().close();
@@ -161,70 +145,22 @@ public class BaseTest {
         driver.get(url);
     }
 
-    public void choosePlaylist() {
-        WebElement chooseAnyPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//section[@id='songResultsWrapper']//li[contains(text(),'summer')]")));
-        chooseAnyPlaylist.click();
 
-    }
 
-    public void clickAddToBtn() {
-        WebElement addToBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".btn-add-to")));
-        addToBtn.click();
-    }
 
-    public void clickTheFirstSong() {
-        WebElement firstSong = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("section#songResultsWrapper  td.title")));
-        firstSong.click();
-    }
-
-    public void clickViewAllBtn() {
-        WebElement viewAllSearch = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.results section.songs h1 button")));
-        viewAllSearch.click();
-    }
-
-    public void searchSong(String song){
-        WebElement search = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='search']")));
-        search.sendKeys(song);
-    }
 
     public String getNotificationText() {
         WebElement notificationT = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.success.show")));
         return notificationT.getText();
     }
 
-    public void clickAvatorIcon() {
-        WebElement avatarIcon = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("img[class='avatar']")));
-        avatarIcon.click();
-    }
 
-    public String generateRandomName(){
-        return UUID.randomUUID().toString().replace("-","");
-    }
 
-    public void provideCurrentPassword(String password) {
-        WebElement currentPassword = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[name='current_password']")));
-        currentPassword.clear();
-        currentPassword.sendKeys(password);
 
-    }
 
-    public void provideProfileName(String newProfileName){
-        WebElement profileName = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[id='inputProfileName']")));
-        profileName.clear();
-        profileName.sendKeys(newProfileName);
-    }
 
-    public void clickOnSaveBtn(){
-        WebElement saveBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[class='btn-submit']")));
-        saveBtn.click();
-    }
   //Mouse Hover
-    public WebElement clickPlayBtn() {
-        WebElement playButton = driver.findElement(By.cssSelector("[data-testid='play-btn']"));
-        actions.moveToElement(playButton).perform();
-        return wait.until(ExpectedConditions.visibilityOf(playButton));
 
-    }
 
     public void clickDeletePlaylistBtn() {
         WebElement deletePlaylistBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.del.btn-delete-playlist")));
@@ -236,27 +172,9 @@ public class BaseTest {
         clickPlaylist.click();
     }
 
-    public void registrationLinkClick() {
-        WebElement registrationLink = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[href='registration']")));
-        registrationLink.click();
-    }
 
-    public boolean isSongPlaying() {
-            WebElement soundBar = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@data-testid='sound-bar-play']")));
-            return soundBar.isDisplayed();
-        }
 
-    public void enterNewPlaylistName() {
-        WebElement inputField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[name='name']")));
-        inputField.sendKeys(Keys.chord(Keys.CONTROL, "A", Keys.BACK_SPACE));
-        inputField.sendKeys(newPlaylistName);
-        inputField.sendKeys(Keys.ENTER);
-    }
 
-    public void doubleClickPlaylist() {
-        WebElement dblClick = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)")));
-        actions.doubleClick(dblClick).perform();
-    }
 
     public String getRenamePlaylistSuccessMsg(){
    WebElement notification = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
