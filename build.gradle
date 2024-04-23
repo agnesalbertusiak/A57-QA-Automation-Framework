@@ -18,8 +18,8 @@ dependencies {
 
 test {
     useTestNG() {
-        //suites "src/test/resources/TestNG.xml" //this one for allOtherTests and for Cucumber
-        suites "src/test/resources/${suite}.xml" //this one just for Jenkins
+        suites "src/test/resources/TestNG.xml" //this one for allOtherTests and for Cucumber
+        //suites "src/test/resources/${suite}.xml" //this one just for Jenkins
         //suites "src/test/resources/Smoke.xml"
         systemProperty "browser", System.getProperty("browser"); //for grid testing
     }
