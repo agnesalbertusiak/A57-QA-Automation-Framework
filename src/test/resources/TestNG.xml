@@ -9,6 +9,7 @@
             <class name="PlaylistTests"/>
             <class name="RegistrationTests"/>
             <class name="HomePageTests"/>
+            <class name="ArtistsTests"/>
             <!--<class name="ProfileTests"/>-->
         </classes>
     </test>

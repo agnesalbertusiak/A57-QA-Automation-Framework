@@ -41,11 +41,18 @@ public class HomePage extends BasePage{
         WebElement notificationT = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.success.show")));
         return notificationT.getText();
     }
-    public HomePage searchSong(String song){
+    public HomePage searchSong(String song) {
         WebElement search = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='search']")));
         search.sendKeys(song);
         return this;
     }
+
+    public HomePage searchArtist  (String artist){
+        WebElement searchA = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='search']")));
+        searchA.sendKeys(artist);
+        return this;
+        }
+
     public HomePage choosePlaylist() {
         WebElement chooseAnyPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//section[@id='songResultsWrapper']//li[contains(text(),'Summer2024')]")));
         chooseAnyPlaylist.click();
