@@ -17,6 +17,8 @@ public class HomePage extends BasePage{
     private By firstPlaylist = By.cssSelector(".playlist:nth-child(3)");
     private By deleteBtn = By.cssSelector("button.del.btn-delete-playlist");
     private By notificationText = By.cssSelector("div.success.show");
+
+
     public WebElement getUserAvatarIcon(){
         return findElement(avatarIcon);
     }
@@ -44,6 +46,11 @@ public class HomePage extends BasePage{
     public HomePage searchSong(String song) {
         WebElement search = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='search']")));
         search.sendKeys(song);
+        return this;
+    }
+    public HomePage userProfileIconClick() {
+        WebElement userProfile = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[title='View/edit user profile']")));
+        userProfile.click();
         return this;
     }
 
@@ -85,5 +92,9 @@ public class HomePage extends BasePage{
     public void clickAvatorIcon() {
         WebElement avatarIcon = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("img[class='avatar']")));
         avatarIcon.click();
+    }
+    public boolean homePageIsDisplayed() {
+        WebElement favoritesList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("section#homeWrapper")));
+        return favoritesList.isDisplayed();
     }
 }

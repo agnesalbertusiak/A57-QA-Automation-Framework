@@ -20,7 +20,7 @@ public class ProfileTests extends BaseTest{
         String randomName = generateRandomName();
         loginPage.login();
         homePage.clickAvatorIcon();
-        profilePage.provideCurrentPassword("4Ameryka4aska!");
+        profilePage.enterCurrentPassword("4Ameryka4aska!");
         profilePage.provideProfileName(randomName).clickOnSaveBtn();
         homePage.successMessage().isDisplayed();
 

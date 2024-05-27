@@ -37,6 +37,47 @@ public class BasePage {
     public boolean soundBarIconDisplayed() {
         WebElement soundBar = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@data-testid='sound-bar-play']")));
         return soundBar.isDisplayed();
+    }public BasePage currentQueuePanel(){
+        WebElement queuePanel = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[href='#!/queue']")));
+        queuePanel.click();
+        return this;
     }
 
+    public BasePage allSongsPanel(){
+        WebElement allSongs = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[href='#!/songs']")));
+        allSongs.click();
+        return this;
+    }
+    public BasePage albumsPanel(){
+        WebElement albums = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[href='#!/albums']")));
+        albums.click();
+        return this;
+    }
+
+    public BasePage artistsPanel(){
+        WebElement artists = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[href='#!/artists']")));
+        artists.click();
+        return this;
+    }
+    public BasePage favoritesPanel(){
+        WebElement favorites = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[href='#!/favorites']")));
+        favorites.click();
+        return this;
+    }
+    public BasePage recentlyPlayedPanel(){
+        WebElement recentlyPlayed = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[href='#!/recently-played']")));
+        recentlyPlayed.click();
+        return this;
+    }
+
+    public BasePage homePanel() {
+        WebElement recentlyPlayed = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[href='#!/home']")));
+        recentlyPlayed.click();
+        return this;
+    }
+    public BasePage logoutButton(){
+        WebElement logout = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.control.logout")));
+        logout.click();
+        return this;
+    }
 }

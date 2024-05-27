@@ -17,6 +17,9 @@ public class LoginPage extends BasePage{
     private By emailField = By.cssSelector("[type='email']");
     private By passwordField = By.cssSelector("[type='password']");
     private By loginBtn = By.cssSelector("button[type='submit']");
+    private By fillOutEmail = By.cssSelector("[placeholder='Password']");
+    public WebElement getFillOutEmailMesssage() {return findElement(fillOutEmail);}
+
 
     //Page Factory
     @FindBy(css = "[type='email']")
@@ -72,5 +75,14 @@ public class LoginPage extends BasePage{
         WebElement registrationLink = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[href='registration']")));
         registrationLink.click();
         return this;
+    }
+    public String getPasswordNotificationMessage() {
+        String validationMessage = passwordF.getAttribute("validationMessage");
+        return validationMessage;
+    }
+
+    public String getEmailNotificationMessage(){
+        String validationMessage = emailF.getAttribute("validationMessage");
+        return validationMessage;
     }
 }

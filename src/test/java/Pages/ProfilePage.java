@@ -13,12 +13,31 @@ public class ProfilePage extends BasePage {
     }
 
     private By profileName = By.cssSelector("a.view-profile>span");
-    public ProfilePage provideCurrentPassword(String password) {
+    private By emailE = By.cssSelector("input#inputProfileEmail");
+
+    public ProfilePage enterEmail(String email){
+        findElement(emailE).sendKeys(email);
+        return this;
+    }
+
+    public ProfilePage enterCurrentPassword(String password) {
         WebElement currentPassword = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[name='current_password']")));
         currentPassword.clear();
         currentPassword.sendKeys(password);
         return this;
 
+    }
+    public ProfilePage enterNewEmail(String email) {
+        WebElement currentEmail = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input#inputProfileEmail")));
+        currentEmail.clear();
+        currentEmail.sendKeys(email);
+        return this;
+
+    }
+    public ProfilePage enterNewPassword(String password){
+        WebElement newPassword = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input#inputProfileNewPassword")));
+        newPassword.sendKeys(password);
+        return this;
     }
 
     public ProfilePage provideProfileName(String newProfileName){
@@ -31,6 +50,11 @@ public class ProfilePage extends BasePage {
     public ProfilePage clickOnSaveBtn(){
         WebElement saveBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[class='btn-submit']")));
         saveBtn.click();
+        return this;
+    }
+    public ProfilePage currentEmail(){
+        WebElement enterEmailAddress = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input#inputProfileEmail")));
+        enterEmailAddress.click();
         return this;
     }
 
