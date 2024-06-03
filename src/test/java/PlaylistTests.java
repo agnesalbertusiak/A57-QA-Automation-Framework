@@ -1,7 +1,6 @@
-import Pages.HomePage;
-import Pages.LoginPage;
-import Pages.PlaylistPage;
-import net.bytebuddy.build.Plugin;
+import pages.HomePage;
+import pages.LoginPage;
+import pages.PlaylistPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

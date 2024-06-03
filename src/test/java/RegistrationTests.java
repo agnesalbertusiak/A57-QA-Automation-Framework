@@ -1,4 +1,4 @@
-import Pages.LoginPage;
+import pages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

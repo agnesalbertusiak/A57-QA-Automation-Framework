@@ -1,4 +1,4 @@
-package Pages;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,6 +17,14 @@ public class HomePage extends BasePage{
     private By firstPlaylist = By.cssSelector(".playlist:nth-child(3)");
     private By deleteBtn = By.cssSelector("button.del.btn-delete-playlist");
     private By notificationText = By.cssSelector("div.success.show");
+
+    private By anySong = By.cssSelector("section#homeWrapper :nth-child(7)");
+
+
+    public HomePage doubleClickAnySong(){
+        doubleClick(anySong);
+        return this;
+    }
 
 
     public WebElement getUserAvatarIcon(){

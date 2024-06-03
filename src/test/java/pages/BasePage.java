@@ -1,4 +1,4 @@
-package Pages;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -37,7 +37,8 @@ public class BasePage {
     public boolean soundBarIconDisplayed() {
         WebElement soundBar = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@data-testid='sound-bar-play']")));
         return soundBar.isDisplayed();
-    }public BasePage currentQueuePanel(){
+    }
+    public BasePage currentQueuePanel(){
         WebElement queuePanel = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[href='#!/queue']")));
         queuePanel.click();
         return this;
@@ -67,6 +68,12 @@ public class BasePage {
     public BasePage recentlyPlayedPanel(){
         WebElement recentlyPlayed = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[href='#!/recently-played']")));
         recentlyPlayed.click();
+        return this;
+    }
+
+    public BasePage firstPlaylistPanel(){
+        WebElement firstPlaylist = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("section#playlists :nth-child(3)")));
+        firstPlaylist.click();
         return this;
     }
 

@@ -1,8 +1,6 @@
-import Pages.HomePage;
-import Pages.LoginPage;
-import Pages.ProfilePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import pages.HomePage;
+import pages.LoginPage;
+import pages.ProfilePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

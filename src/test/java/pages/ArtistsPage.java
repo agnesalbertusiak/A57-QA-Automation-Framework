@@ -1,4 +1,4 @@
-package Pages;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,6 +10,8 @@ public class ArtistsPage extends BasePage{
         super(givenDriver);
     }
 
+    private By anySong = By.cssSelector("section#artistsWrapper :nth-child(6)");
+
     private By firstSong = By.cssSelector("#artistWrapper td.title:nth-child(2)");
 
     public ArtistsPage clickArtistsPage() {
@@ -20,6 +22,11 @@ public class ArtistsPage extends BasePage{
     public boolean artistsListIsDisplayed() {
         WebElement artistsList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.artists.main-scroll-wrap.as-thumbnails")));
         return artistsList.isDisplayed();
+    }
+
+    public ArtistsPage doubleClickAnySong(){
+        doubleClick(anySong);
+        return this;
     }
     public ArtistsPage doubleClickOnFirstSong(){
         doubleClick(firstSong);

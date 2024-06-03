@@ -1,6 +1,6 @@
-import Pages.BasePage;
-import Pages.HomePage;
-import Pages.LoginPage;
+import pages.BasePage;
+import pages.HomePage;
+import pages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
