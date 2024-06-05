@@ -64,7 +64,7 @@ public class LoginTests extends BaseTest {
     public void userIsAbleToUpdateEmail(){
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
-        ProfilePage profilePage = new ProfilePage(getDriver());
+        ProfilePreferencesPage profilePage = new ProfilePreferencesPage(getDriver());
 
         String profileUpdatedMsg = "Profile updated.";
 
@@ -97,7 +97,7 @@ public class LoginTests extends BaseTest {
     public void userIsAbleToUpdatePassword(){
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
-        ProfilePage profilePage = new ProfilePage(getDriver());
+        ProfilePreferencesPage profilePage = new ProfilePreferencesPage(getDriver());
 
         String profileUpdatedMsg = "Profile updated.";
 
@@ -120,7 +120,7 @@ public class LoginTests extends BaseTest {
     public void userIsAbleToUpdateProfileWithOldEmailAndOldPassword(){
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
-        ProfilePage profilePage = new ProfilePage(getDriver());
+        ProfilePreferencesPage profilePage = new ProfilePreferencesPage(getDriver());
 
         String profileUpdatedMsg = "Profile updated.";
 

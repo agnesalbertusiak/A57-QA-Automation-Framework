@@ -1,6 +1,6 @@
 import pages.HomePage;
 import pages.LoginPage;
-import pages.ProfilePage;
+import pages.ProfilePreferencesPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,7 +13,7 @@ public class ProfileTests extends BaseTest{
 
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
-        ProfilePage profilePage = new ProfilePage(getDriver());
+        ProfilePreferencesPage profilePage = new ProfilePreferencesPage(getDriver());
 
         String randomName = generateRandomName();
         loginPage.login();
